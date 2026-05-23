@@ -1,15 +1,9 @@
 import { defineConfig } from 'astro/config'
-import react from '@astrojs/react'
+import solid from '@astrojs/solid-js'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  integrations: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
-  ],
+  integrations: [solid()],
   vite: {
     plugins: [tailwindcss()],
   },

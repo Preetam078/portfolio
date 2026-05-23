@@ -1,6 +1,6 @@
-# Portfolio
+# Astro + Solid Starter
 
-Astro portfolio project with React components and the React Compiler enabled through the Astro React integration.
+Minimal starter with Astro, SolidJS, Bun, and Tailwind CSS.
 
 ## Commands
 

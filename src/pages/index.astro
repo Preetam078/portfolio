@@ -1,17 +1,39 @@
 ---
-import App from '../App'
-import '../index.css'
+import BaseLayout from '../components/layout/BaseLayout.astro'
+import Navigation from '../components/solid/Navigation'
+import PageEffects from '../components/solid/PageEffects'
+import About from '../components/sections/About.astro'
+import Contact from '../components/sections/Contact.astro'
+import Education from '../components/sections/Education.astro'
+import Experience from '../components/sections/Experience.astro'
+import Footer from '../components/sections/Footer.astro'
+import Hero from '../components/sections/Hero.astro'
+import ProofLinks from '../components/sections/ProofLinks.astro'
+import ProofSnapshot from '../components/sections/ProofSnapshot.astro'
+import Projects from '../components/sections/Projects.astro'
+import Skills from '../components/sections/Skills.astro'
+import Strengths from '../components/sections/Strengths.astro'
+import portfolioData from '../data/portfolio.json'
+import type { PortfolioContent } from '../types/portfolio'
+
+const portfolio = portfolioData as PortfolioContent
 ---
 
-<!doctype html>
-<html class="dark" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Portfolio</title>
-  </head>
-  <body>
-    <App client:load />
-  </body>
-</html>
+<BaseLayout title={portfolio.site.title} description={portfolio.site.description} author={portfolio.site.author}>
+  <Navigation client:load contactHref="#contact" initials={portfolio.site.initials} items={portfolio.navigation} />
+  <PageEffects client:load />
+
+  <main class="relative mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden border-x border-white/[0.02]">
+    <Hero hero={portfolio.hero} />
+    <About about={portfolio.about} />
+    <ProofSnapshot proof={portfolio.proofSnapshot} />
+    <Projects projects={portfolio.projects} />
+    <Strengths strengths={portfolio.strengths} />
+    <Experience experience={portfolio.experience} />
+    <Skills skills={portfolio.skills} />
+    <ProofLinks proofLinks={portfolio.proofLinks} />
+    <Education education={portfolio.education} />
+    <Contact contact={portfolio.contact} />
+    <Footer author={portfolio.site.author} socials={portfolio.socials} />
+  </main>
+</BaseLayout>
