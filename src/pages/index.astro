@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro'
 import Navigation from '../components/solid/Navigation'
-import PageEffects from '../components/solid/PageEffects'
 import About from '../components/sections/About.astro'
 import Contact from '../components/sections/Contact.astro'
 import Education from '../components/sections/Education.astro'
@@ -21,7 +20,6 @@ const portfolio = portfolioData as PortfolioContent
 
 <BaseLayout title={portfolio.site.title} description={portfolio.site.description} author={portfolio.site.author}>
   <Navigation client:load contactHref="#contact" initials={portfolio.site.initials} items={portfolio.navigation} />
-  <PageEffects client:load />
 
   <main class="relative mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden border-x border-white/[0.02]">
     <Hero hero={portfolio.hero} />

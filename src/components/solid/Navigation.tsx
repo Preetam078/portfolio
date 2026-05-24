@@ -17,6 +17,7 @@ export default function Navigation(props: NavigationProps) {
 
   let sections: HTMLElement[] = []
   let experienceTimeline: HTMLElement | undefined
+  let navElement: HTMLElement | undefined
   let progressBarFill: HTMLDivElement | undefined
   let sectionObserver: IntersectionObserver | undefined
   let programmaticScroll = false
@@ -31,7 +32,7 @@ export default function Navigation(props: NavigationProps) {
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
     if (progressBarFill) {
       const nextProgress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0
-      progressBarFill.style.width = `${nextProgress}%`
+      progressBarFill.style.transform = `scaleX(${nextProgress / 100})`
     }
   }
 
@@ -71,6 +72,13 @@ export default function Navigation(props: NavigationProps) {
       scrollFrame = 0
       syncScrollState()
     })
+  }
+
+  const handleDocumentPointerDown = (event: PointerEvent) => {
+    if (!isMenuOpen()) return
+    if (navElement?.contains(event.target as Node)) return
+
+    setIsMenuOpen(false)
   }
 
   const syncScrollState = () => {
@@ -132,9 +140,11 @@ export default function Navigation(props: NavigationProps) {
     syncActiveSection()
     syncScrollState()
     window.addEventListener('scroll', handleScroll, { passive: true })
+    document.addEventListener('pointerdown', handleDocumentPointerDown)
 
     onCleanup(() => {
       window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('pointerdown', handleDocumentPointerDown)
       window.cancelAnimationFrame(scrollFrame)
       window.clearTimeout(scrollTimer)
       sectionObserver?.disconnect()
@@ -143,10 +153,10 @@ export default function Navigation(props: NavigationProps) {
 
   return (
     <>
-      <div class="fixed left-1/2 top-0 z-[60] h-0.5 w-full max-w-[1440px] -translate-x-1/2 bg-zinc-900/70">
+      <div class="fixed left-1/2 top-0 z-[60] h-[3px] w-full max-w-[1440px] -translate-x-1/2 bg-zinc-900/80">
         <div
           data-progress-bar-fill
-          class="h-full rounded-r-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+          class="scroll-progress-fill h-full w-full origin-left rounded-r-full bg-gradient-to-r from-white via-zinc-200 to-zinc-500 shadow-[0_0_14px_rgba(255,255,255,0.95)]"
         />
       </div>
 
@@ -155,9 +165,9 @@ export default function Navigation(props: NavigationProps) {
           aria-label="Primary navigation"
           class="glass-nav pointer-events-auto relative w-full rounded-full shadow-sm transition-all duration-300 md:w-auto"
           classList={{
-            'bg-black/45 shadow-lg': isScrolled(),
-            'bg-white/5': !isScrolled(),
+            'shadow-lg': isScrolled(),
           }}
+          ref={element => { navElement = element }}
         >
           <div class="px-5 md:px-10">
             <div class="flex h-14 items-center justify-between md:gap-20">
@@ -204,7 +214,7 @@ export default function Navigation(props: NavigationProps) {
           </div>
 
           <div
-            class="absolute left-0 right-0 top-full mt-4 overflow-hidden rounded-2xl border border-zinc-800 bg-black/95 shadow-2xl backdrop-blur-xl md:hidden"
+            class="absolute left-0 right-0 top-full mt-4 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl md:hidden"
             classList={{ hidden: !isMenuOpen() }}
             id="mobile-menu"
           >

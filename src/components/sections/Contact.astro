@@ -54,6 +54,6 @@ const { contact } = Astro.props
       ))}
     </div>
 
-    <ContactForm client:load email={contact.email} />
+    <ContactForm client:visible email={contact.email} />
   </div>
 </section>

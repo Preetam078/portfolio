@@ -23,13 +23,13 @@ const heroHeadlineParts = hero.headline.startsWith('Frontend ')
 
   <div class="pointer-events-none relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
     <div class="space-y-5">
-      <p class="animate-fade-in-up text-label-14-mono text-zinc-400 text-shadow-subtle [animation-delay:100ms]">
+      <p class="text-label-14-mono text-zinc-400 text-shadow-subtle">
         {hero.eyebrow}
       </p>
-      <p class="animate-fade-in-up font-mono text-label-16 text-zinc-300 text-shadow-subtle [animation-delay:150ms]">
+      <p class="font-mono text-label-16 text-zinc-300 text-shadow-subtle">
         {hero.role}
       </p>
-      <h1 class="animate-fade-in-up mx-auto max-w-5xl text-heading-64 text-white text-shadow-subtle [animation-delay:200ms] lg:text-heading-72">
+      <h1 class="mx-auto max-w-5xl text-heading-64 text-white text-shadow-subtle lg:text-heading-72">
         {heroHeadlineParts ? (
           <>
             <span class="text-gradient-aurora font-black">{heroHeadlineParts.lead}</span>{' '}
@@ -39,21 +39,21 @@ const heroHeadlineParts = hero.headline.startsWith('Frontend ')
           hero.headline
         )}
       </h1>
-      <p class="animate-fade-in-up mx-auto max-w-3xl text-copy-20 text-zinc-400 text-shadow-subtle [animation-delay:300ms]">
+      <p class="mx-auto max-w-3xl text-copy-20 text-zinc-400 text-shadow-subtle">
         {hero.summary}
       </p>
     </div>
 
-    <ul class="animate-fade-in-up mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2 [animation-delay:400ms]" aria-label="Trust signals">
+    <ul class="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2" aria-label="Trust signals">
       {hero.trustSignals.map((signal, index) => (
-        <li class="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-black/55 px-3 py-1.5 text-label-13 text-zinc-300 backdrop-blur">
+        <li class="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-1.5 text-label-13 text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
           <SvgIcon class="size-3.5 text-zinc-100" name={trustIcons[index] ?? 'sparkles'} />
           {signal}
         </li>
       ))}
     </ul>
 
-    <div class="animate-fade-in-up flex flex-col items-center justify-center gap-3 pt-8 [animation-delay:500ms] sm:flex-row sm:flex-wrap">
+    <div class="flex flex-col items-center justify-center gap-3 pt-8 sm:flex-row sm:flex-wrap">
       {hero.ctas.map(cta => (
         <a
           class:list={[

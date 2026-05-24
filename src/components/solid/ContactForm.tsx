@@ -74,7 +74,7 @@ export default function ContactForm(props: ContactFormProps) {
       </div>
 
       <dialog
-        class="success-dialog w-[calc(100%-2rem)] max-w-sm rounded-xl border border-zinc-700 bg-zinc-900 p-6 text-zinc-100 shadow-[0_0_30px_rgba(255,255,255,0.08)] backdrop:bg-black/80 backdrop:backdrop-blur-sm"
+        class="success-dialog w-[calc(100%-2rem)] max-w-sm rounded-xl border border-zinc-700 bg-zinc-900 p-6 text-zinc-100 shadow-[0_0_30px_rgba(255,255,255,0.08)] backdrop:bg-black/85"
         onClick={event => {
           if (event.target === dialogRef) close()
         }}

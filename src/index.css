@@ -19,19 +19,6 @@
 @theme {
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
-}
-
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 :root {
@@ -227,25 +214,29 @@ body {
 }
 
 .fade-edges {
-  mask-image:
-    linear-gradient(to bottom, transparent 0, black 150px, black calc(100% - 150px), transparent 100%),
-    linear-gradient(to right, transparent 0, black 50px, black calc(100% - 50px), transparent 100%);
-  mask-composite: intersect;
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0, black 150px, black calc(100% - 150px), transparent 100%),
-    linear-gradient(to right, transparent 0, black 50px, black calc(100% - 50px), transparent 100%);
-  -webkit-mask-composite: source-in;
+  position: absolute;
+}
+
+.fade-edges::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, #000 0, transparent 150px, transparent calc(100% - 150px), #000 100%),
+    linear-gradient(to right, #000 0, transparent 50px, transparent calc(100% - 50px), #000 100%);
+  content: "";
 }
 
 .fade-edges-soft {
-  mask-image:
-    linear-gradient(to bottom, transparent 0, black 100px, black calc(100% - 100px), transparent 100%),
-    linear-gradient(to right, transparent 0, black 50px, black calc(100% - 50px), transparent 100%);
-  mask-composite: intersect;
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0, black 100px, black calc(100% - 100px), transparent 100%),
-    linear-gradient(to right, transparent 0, black 50px, black calc(100% - 50px), transparent 100%);
-  -webkit-mask-composite: source-in;
+  position: absolute;
+}
+
+.fade-edges-soft::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, #000 0, transparent 100px, transparent calc(100% - 100px), #000 100%),
+    linear-gradient(to right, #000 0, transparent 50px, transparent calc(100% - 50px), #000 100%);
+  content: "";
 }
 
 .experience-timeline {
@@ -256,27 +247,31 @@ body {
   transform: scaleY(var(--experience-progress));
 }
 
+.scroll-progress-fill {
+  transform: scaleX(0);
+}
+
 .glass-nav {
   border: 1px solid rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(24, 24, 27, 0.94), rgba(9, 9, 11, 0.9)),
+    rgba(9, 9, 11, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 14px 42px rgba(0, 0, 0, 0.34);
 }
 
 .glass-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(15, 15, 15, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.06), transparent 34%),
+    linear-gradient(180deg, rgba(18, 18, 20, 0.9), rgba(7, 7, 8, 0.93)),
+    rgba(10, 10, 11, 0.92);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
-  contain: layout paint style;
-}
-
-main > section[id] {
-  content-visibility: auto;
-  contain-intrinsic-size: 900px;
   contain: layout paint style;
 }
 
@@ -348,8 +343,6 @@ main > section[id] {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 0 22px rgba(255, 255, 255, 0.08);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
 }
 
 .icon-badge--warm {
@@ -364,14 +357,6 @@ main > section[id] {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
-}
-
-.reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
@@ -532,6 +517,7 @@ main > section[id] {
 }
 
 .hero-3d-wrapper {
+  --hero-grid-cell-size: 112px;
   --hero-grid-scale: 1.5;
   --hero-grid-y: 50%;
 
@@ -540,17 +526,19 @@ main > section[id] {
   inset: 0;
   overflow: hidden;
   perspective: 1000px;
-  mask-image:
-    linear-gradient(to bottom, black 0%, black calc(100% - 200px), transparent 100%),
-    linear-gradient(to right, transparent 0, black 50px, black calc(100% - 50px), transparent 100%),
-    radial-gradient(ellipse at 50% 50%, black 25%, transparent 90%);
-  mask-composite: intersect;
-  -webkit-mask-image:
-    linear-gradient(to bottom, black 0%, black calc(100% - 200px), transparent 100%),
-    linear-gradient(to right, transparent 0, black 50px, black calc(100% - 50px), transparent 100%),
-    radial-gradient(ellipse at 50% 50%, black 25%, transparent 90%);
-  -webkit-mask-composite: source-in;
   contain: paint;
+}
+
+.hero-3d-wrapper::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 25%, #000 90%),
+    linear-gradient(to bottom, transparent 0%, transparent calc(100% - 200px), #000 100%),
+    linear-gradient(to right, #000 0, transparent 50px, transparent calc(100% - 50px), #000 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .hero-3d-grid {
@@ -558,8 +546,8 @@ main > section[id] {
   top: var(--hero-grid-y);
   left: 50%;
   display: flex;
-  width: calc(var(--hero-grid-cells) * 50px);
-  height: calc(var(--hero-grid-cells) * 50px);
+  width: calc(var(--hero-grid-cells) * var(--hero-grid-cell-size));
+  height: calc(var(--hero-grid-cells) * var(--hero-grid-cell-size));
   flex-wrap: wrap;
   align-content: flex-start;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
@@ -583,8 +571,8 @@ main > section[id] {
 }
 
 .hero-grid-cell {
-  width: 50px;
-  height: 50px;
+  width: var(--hero-grid-cell-size);
+  height: var(--hero-grid-cell-size);
   border-right: 1px solid rgba(255, 255, 255, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   box-sizing: border-box;
@@ -728,7 +716,6 @@ section .pattern-grid,
 section .pattern-lines,
 section .pattern-hexagons {
   pointer-events: none;
-  will-change: transform;
   contain: paint;
 }
 
@@ -753,7 +740,6 @@ section .pattern-hexagons {
   }
 
   .reveal {
-    opacity: 1;
     transform: none;
   }
 }
