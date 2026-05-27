@@ -75,6 +75,7 @@ export type CapabilityBlock = {
 
 export type Experience = {
   company: string
+  companyLogo?:string
   domain: string
   role: string
   dates: string

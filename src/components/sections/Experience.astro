@@ -21,7 +21,7 @@ const { experience } = Astro.props
       <div class="experience-timeline-fill absolute bottom-10 left-3 top-3 hidden w-px origin-top bg-gradient-to-b from-white via-white to-white/20 shadow-[0_0_16px_rgba(255,255,255,0.55)] transition-transform duration-75 md:block"></div>
 
       {experience.map((role, index) => (
-        <div class="reveal relative grid gap-5 pb-8 last:pb-0 md:grid-cols-[48px_1fr]" style={`transition-delay: ${index * 90}ms`}>
+        <div class="reveal group relative grid gap-5 pb-8 last:pb-0 md:grid-cols-[48px_1fr]" style={`transition-delay: ${index * 90}ms`}>
           <div class="relative hidden md:block">
             <div class="absolute left-3 top-8 z-10 flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-zinc-950/95 text-label-12-mono text-white shadow-[0_0_22px_rgba(255,255,255,0.18)]">
               0{index + 1}
@@ -41,7 +41,12 @@ const { experience } = Astro.props
                   <SvgIcon class="size-4 text-zinc-300" name="server" />
                   {role.domain}
                 </p>
-                <h3 class="text-heading-24 text-gradient-mono">{role.company}</h3>
+                <div class="flex items-center gap-2">
+                  {role.companyLogo && (
+                    <img src={role.companyLogo} alt={`${role.company} logo`} class="size-10 rounded-lg border border-white/10 bg-zinc-900/50 object-contain grayscale transition-all duration-300 group-hover:grayscale-0" />
+                  )}
+                  <h3 class="text-heading-24 text-gradient-mono">{role.company}</h3>
+                </div>
                 <p class="mt-2 text-label-16 text-zinc-300">{role.role}</p>
               </div>
               <p class="h-fit rounded-full border border-zinc-800 bg-black/60 px-3 py-1.5 text-label-13 text-zinc-500">{role.dates}</p>
