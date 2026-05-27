@@ -1,10 +1,10 @@
 {
   "site": {
-    "name": "Rohit Sharma",
-    "initials": "R.S",
-    "title": "Rohit Sharma - Frontend Engineer",
+    "name": "Preetam Mondal",
+    "initials": "P.M",
+    "title": "Preetam Mondal - Frontend Engineer",
     "description": "Frontend Engineer with 4.5 years of experience building scalable React, TypeScript, Node, SSR, design-system, and product engineering platforms across B2B SaaS, auto-tech, and edtech.",
-    "author": "Rohit Sharma"
+    "author": "Preetam Mondal"
   },
   "navigation": [
     { "label": "Home", "href": "#home" },
@@ -19,7 +19,7 @@
     { "label": "LinkedIn", "href": "https://www.linkedin.com/in/rohitnv09/", "icon": "linkedin" }
   ],
   "hero": {
-    "eyebrow": "Rohit Sharma",
+    "eyebrow": "Preetam Mondal",
     "name": "Frontend Engineer",
     "role": "Frontend Engineer / Frontend-focused Full-Stack Developer",
     "headline": "Frontend engineer building fast, reliable, product-grade web experiences.",
@@ -27,7 +27,7 @@
     "trustSignals": [
       "4.5 years in production engineering",
       "React / TypeScript / Next.js / Node",
-      "B2B SaaS, auto-tech, edtech",
+      "fintech, marketplace, auto-tech, edtech",
       "Performance, architecture, product UI"
     ],
     "ctas": [
@@ -49,8 +49,8 @@
       "Playwright and RTL coverage for critical paths"
     ],
     "portrait": {
-      "alt": "Rohit Sharma identity mark",
-      "initials": "R.S"
+      "alt": "Preetam Mondal identity mark",
+      "initials": "P.M"
     }
   },
   "proofSnapshot": {
