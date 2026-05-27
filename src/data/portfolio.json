@@ -1,16 +1,17 @@
 {
   "site": {
-    "name": "Rohit Sharma",
-    "initials": "R.S",
-    "title": "Rohit Sharma - Frontend Engineer",
+    "name": "Preetam Mondal",
+    "initials": "P.M",
+    "title": "Preetam Mondal - Frontend Engineer",
     "description": "Frontend Engineer with 4.5 years of experience building scalable React, TypeScript, Node, SSR, design-system, and product engineering platforms across B2B SaaS, auto-tech, and edtech.",
-    "author": "Rohit Sharma"
+    "author": "Preetam Mondal"
   },
   "navigation": [
     { "label": "Home", "href": "#home" },
     { "label": "Proof", "href": "#proof" },
     { "label": "Work", "href": "#work" },
     { "label": "Experience", "href": "#experience" },
+    { "label": "Architecture", "href": "#architecture" },
     { "label": "Skills", "href": "#skills" }
   ],
   "socials": [
@@ -18,7 +19,7 @@
     { "label": "LinkedIn", "href": "https://www.linkedin.com/in/rohitnv09/", "icon": "linkedin" }
   ],
   "hero": {
-    "eyebrow": "Rohit Sharma",
+    "eyebrow": "Preetam Mondal",
     "name": "Frontend Engineer",
     "role": "Frontend Engineer / Frontend-focused Full-Stack Developer",
     "headline": "Frontend engineer building fast, reliable, product-grade web experiences.",
@@ -26,7 +27,7 @@
     "trustSignals": [
       "4.5 years in production engineering",
       "React / TypeScript / Next.js / Node",
-      "B2B SaaS, auto-tech, edtech",
+      "fintech, marketplace, auto-tech, edtech",
       "Performance, architecture, product UI"
     ],
     "ctas": [
@@ -48,8 +49,8 @@
       "Playwright and RTL coverage for critical paths"
     ],
     "portrait": {
-      "alt": "Rohit Sharma identity mark",
-      "initials": "R.S"
+      "alt": "Preetam Mondal identity mark",
+      "initials": "P.M"
     }
   },
   "proofSnapshot": {
@@ -145,7 +146,22 @@
   ],
   "experience": [
     {
-      "company": "Birdeye",
+      "company": "Walmart",
+      "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmjBQDc1CrfZ3EuT6SZ5dS4tK_Qmbrk51BKw&s",
+      "domain": "Customer experience SaaS",
+      "role": "Software Frontend Engineer - 2",
+      "dates": "Dec 2024 - Present",
+      "achievements": [
+        "Spearheaded an embeddable React chat widget across 480+ client sites, influencing $1.2M+ ARR with iframe isolation, Webpack scoping, Express BFF, and WebSocket messaging.",
+        "Led micro-frontend migration with Webpack Module Federation, removing deployment bottlenecks and reshaping monolithic UI into scalable multi-tab architecture.",
+        "Architected schema-driven Next.js survey flows with Zustand, Zod, and React Compiler-aware state patterns, reducing custom form deployment time by 20%."
+      ],
+      "stack": ["React", "TypeScript", "Next.js", "Webpack", "Module Federation", "Express", "WebSockets", "Zustand"],
+      "relatedWork": ["Embeddable React chat widget", "Micro-frontend migration", "Storybook UI library"]
+    },
+    {
+      "company": "CRED",
+      "companyLogo": "https://yt3.googleusercontent.com/30co3_da4nxhae59Jc3qRCEqv_qHJJwPx0t35s_BJfjCOfagcsHPbkJETIdz0vwpuFeOVOipOg=s900-c-k-c0x00ffffff-no-rj",
       "domain": "Customer experience SaaS",
       "role": "Software Frontend Engineer - 2",
       "dates": "Dec 2024 - Present",
@@ -159,6 +175,7 @@
     },
     {
       "company": "CARS24",
+      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQEg7pwylb7_Zw/company-logo_200_200/B56Zwyjd9HHUAI-/0/1770374686201/cars24_logo?e=2147483647&v=beta&t=Cc2hqTbvGuYcYfBf6GBiHTTqDI6ADRDMSFNC9zL7P3k",
       "domain": "Auto-tech marketplace and seller journeys",
       "role": "Software Development Engineer - 1",
       "dates": "May 2023 - Dec 2024",
@@ -171,7 +188,8 @@
       "relatedWork": ["SEO performance systems", "A/B experimentation", "Checkout reliability"]
     },
     {
-      "company": "Kafqa",
+      "company": "Geeksforgeeks",
+      "companyLogo": "https://cdn-1.webcatalog.io/catalog/geeksforgeeks/geeksforgeeks-icon-filled-256.png?v=1714774463254",
       "domain": "Edtech operations and learning workflows",
       "role": "Software Development Engineer - 1",
       "dates": "Jan 2022 - Mar 2023",
@@ -269,5 +287,20 @@
       { "label": "LinkedIn", "href": "https://www.linkedin.com/in/rohitnv09/", "variant": "secondary", "icon": "linkedin" },
       { "label": "GitHub", "href": "https://github.com/rohitnv09", "variant": "secondary", "icon": "github" }
     ]
+  },
+  "architecture": {
+     "headline": "Systematic approaches to building frontend platforms that scale across teams, meeting strict performance targets and production reliability standards.",
+     "frontend": [{
+      "imageUrl": "https://s3-alpha-sig.figma.com/plugins/1030845409121640454/89108/d6079800b78b08a0d585ec28c66c368d6fd907a6-cover?Expires=1780272000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UAGBkjVWZsy8HnzFk4wmuQGOA0gmOYlis9lfqK~0fxe5ApVzP8x4d9AmhNI5nTcmLaoPNbL-Fr9L8iFM0So1arWllX0KMX2s3smhME8Ph84DVDiV5k5vRon-GPu55qZJVRZuCmSLef7-jf3fat6GN8a62oCyxbzgrnn2~NwjQkF8jNZrBVknDI~jiqpjy6Juo~T-rntZdPvC-0c4Wq9a9EvQ6AWPpJ~WKrw~HeRDbCQdN1MzBhmtayC5JTRF-m9bASq0YK~nSIbOya23J0H2otVmfvut0or8Tzl8L2RBx2ygpH3eCk6PlhfdXoAmkrudgmUQbBewtQfErZ-sExT7GQ__",
+      "title": "Embeddable Poll widget",
+      "description": "Schema-driven React architecture featuring iframe isolation and real-time WebSocket synchronization for performant cross-domain embedding.",
+      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1sSn72m40A_6f2fecKVWWl5k7kHo-rQUi&amp;export=download&quot;}\"></div><script type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1sSn72m40A_6f2fecKVWWl5k7kHo-rQUi%26export%3Ddownload\"></script>"
+     },{
+      "imageUrl": "https://s.pinimg.com/images/facebook_share_image.png",
+      "title": "Masonry Layout Listing",
+      "description": "High-performance masonry grid engine implementing list virtualization and dynamic column balancing to efficiently render infinite scroll listings while preventing layout shifts.",
+      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I&amp;export=download&quot;}\"></div><script type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I%26export%3Ddownload\"></script>"
+     }],
+     "backend": [] 
   }
 }

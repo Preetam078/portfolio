@@ -75,6 +75,7 @@ export type CapabilityBlock = {
 
 export type Experience = {
   company: string
+  companyLogo?:string
   domain: string
   role: string
   dates: string
@@ -114,6 +115,19 @@ export type ContactContent = {
   ctas: CtaLink[]
 }
 
+export type ArchitectureContent = {
+  imageUrl: string
+  title: string
+  description: string
+}
+
+
+export type Architecture = {
+  headline: string
+  frontend: ArchitectureContent[],
+  backend: ArchitectureContent[],
+}
+
 export type PortfolioContent = {
   site: {
     name: string
@@ -133,5 +147,6 @@ export type PortfolioContent = {
   skills: SkillCategory[]
   proofLinks: ProofLink[]
   education: EducationContent
-  contact: ContactContent
+  contact: ContactContent,
+  architecture: Architecture
 }
