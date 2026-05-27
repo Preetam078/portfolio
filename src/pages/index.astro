@@ -11,7 +11,7 @@ import ProofLinks from '../components/sections/ProofLinks.astro'
 import ProofSnapshot from '../components/sections/ProofSnapshot.astro'
 import Projects from '../components/sections/Projects.astro'
 import Skills from '../components/sections/Skills.astro'
-import Strengths from '../components/sections/Strengths.astro'
+import Architecture from '../components/sections/Architecture.astro'
 import portfolioData from '../data/portfolio.json'
 import type { PortfolioContent } from '../types/portfolio'
 
@@ -26,8 +26,8 @@ const portfolio = portfolioData as PortfolioContent
     <About about={portfolio.about} />
     <ProofSnapshot proof={portfolio.proofSnapshot} />
     <Projects projects={portfolio.projects} />
-    <Strengths strengths={portfolio.strengths} />
     <Experience experience={portfolio.experience} />
+    <Architecture architecture={portfolio.architecture} />
     <Skills skills={portfolio.skills} />
     <ProofLinks proofLinks={portfolio.proofLinks} />
     <Education education={portfolio.education} />

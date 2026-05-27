@@ -25,7 +25,7 @@ const { about } = Astro.props
           <ul class="grid gap-3 text-copy-14 text-zinc-400 sm:grid-cols-2">
             {about.strengths.slice(0, 6).map(item => (
               <li class="flex gap-3">
-                <span class="mt-0.5 flex size-7 flex-none items-center justify-center rounded-full border border-orange-300/25 bg-orange-500/10 text-orange-200">
+                <span class="mt-0.5 flex size-7 flex-none items-center justify-center rounded-full border border-green-300/25 bg-green-500/10 text-green-200">
                   <SvgIcon class="size-3.5" name="check" />
                 </span>
                 <span>{item}</span>
@@ -38,10 +38,10 @@ const { about } = Astro.props
       <div class="reveal relative mx-auto flex max-w-md justify-center md:ml-auto">
         <div class="group relative">
           <div class="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-xl border-2 border-zinc-600 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
-          <div class="portrait-card relative z-10 flex h-80 w-72 items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-zinc-900 grayscale transition-all duration-500 group-hover:grayscale-0">
+          <div class="portrait-card relative z-10 flex h-80 w-100 items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-zinc-900 grayscale transition-all duration-500 group-hover:grayscale-0">
             <div class="portrait-card__grid"></div>
-            <div class="portrait-card__mark" aria-label={about.portrait.alt} role="img">{about.portrait.initials}</div>
-            <div class="absolute inset-0 bg-black/35 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0"></div>
+            <img src="https://i.ibb.co/vCnKqrtW/profile-Data.jpg" alt={about.portrait.alt} class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-black/20 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0"></div>
           </div>
         </div>
       </div>
