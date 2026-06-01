@@ -43,7 +43,7 @@ const { experience } = Astro.props
                 </p>
                 <div class="flex items-center gap-2">
                   {role.companyLogo && (
-                    <img src={role.companyLogo} alt={`${role.company} logo`} class="size-10 rounded-lg border border-white/10 bg-zinc-900/50 object-contain grayscale transition-all duration-300 group-hover:grayscale-0" />
+                    <img src={role.companyLogo} alt={`${role.company} logo`} class="size-10 rounded-sm border border-white/10 bg-zinc-900/50 object-contain grayscale transition-all duration-300 group-hover:grayscale-0" />
                   )}
                   <h3 class="text-heading-24 text-gradient-mono">{role.company}</h3>
                 </div>
@@ -56,7 +56,7 @@ const { experience } = Astro.props
               <ul class="space-y-3 text-copy-14 text-zinc-400">
                 {role.achievements.slice(0, 2).map(item => (
                   <li class="flex gap-3">
-                    <SvgIcon class="mt-1 size-4 flex-none text-orange-200" name="check" />
+                    <SvgIcon class="mt-1 size-4 flex-none text-green-400" name="check" />
                     <span>{item}</span>
                   </li>
                 ))}

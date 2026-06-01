@@ -299,7 +299,7 @@
       "imageUrl": "https://s.pinimg.com/images/facebook_share_image.png",
       "title": "Masonry Layout Listing",
       "description": "High-performance masonry grid engine implementing list virtualization and dynamic column balancing to efficiently render infinite scroll listings while preventing layout shifts.",
-      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I&amp;export=download&quot;}\"></div><script type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I%26export%3Ddownload\"></script>"
+      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I&amp;export=download&quot;}\"></div><script async type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I%26export%3Ddownload\"></script>"
      }],
      "backend": [] 
   }
