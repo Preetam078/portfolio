@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro'
+import { ClientRouter } from 'astro:transitions'
+import SampleSection from '../components/sections/SampleSection.astro'
+import Footer from '../components/sections/Footer.astro'
+import portfolioData from '../data/portfolio.json'
+import type { PortfolioContent } from '../types/portfolio'
+
+const portfolio = portfolioData as PortfolioContent
+---
+
+<BaseLayout title={`Sample - ${portfolio.site.name}`} description="A sample page" author={portfolio.site.author}>
+  <head>
+    <ClientRouter />
+  </head>
+  <main class="relative mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden border-x border-white/[0.02]">
+    <SampleSection />
+    <Footer author={portfolio.site.author} socials={portfolio.socials} />
+  </main>
+</BaseLayout>

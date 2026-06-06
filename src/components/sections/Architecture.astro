@@ -87,85 +87,95 @@ const items = [
   </style>
 
 <script>
-  const items = document.querySelectorAll('.architecture-item');
-  const modal = document.getElementById('arch-modal');
-  const closeBtn = document.getElementById('modal-close');
-  const contentContainer = document.getElementById('modal-content');
-  const shimmer = document.getElementById('modal-shimmer');
+  import { navigate } from 'astro:transitions/client';
 
-  let diagramLoadTimeout: ReturnType<typeof setTimeout> | undefined;
-  let observer: MutationObserver | undefined;
+  document.addEventListener('astro:page-load', () => {
+    const items = document.querySelectorAll('.architecture-item');
+    const modal = document.getElementById('arch-modal');
+    const closeBtn = document.getElementById('modal-close');
+    const contentContainer = document.getElementById('modal-content');
+    const shimmer = document.getElementById('modal-shimmer');
 
-  function hideShimmer() {
-    if (shimmer) {
-      shimmer.classList.add('opacity-0', 'pointer-events-none');
-    }
-    if (diagramLoadTimeout) {
-      clearTimeout(diagramLoadTimeout);
-    }
-    if (observer) {
-      observer.disconnect();
-    }
-  }
+    let diagramLoadTimeout: ReturnType<typeof setTimeout> | undefined;
+    let observer: MutationObserver | undefined;
 
-  function showShimmer() {
-    if (shimmer) {
-      shimmer.classList.remove('opacity-0', 'pointer-events-none');
-    }
-  }
-
-  function toggleModal(show: boolean) {
-    if (!modal) return;
-
-    if (show) {
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      document.body.style.overflow = 'hidden';
-      showShimmer(); // Show shimmer when modal opens
-    } else {
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      document.body.style.overflow = '';
-      if (contentContainer) contentContainer.innerHTML = '';
-      hideShimmer(); // Hide shimmer when modal closes
-    }
-  }
-
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      const template = item.getAttribute('data-template');
-
-      if (contentContainer && template) {
-        contentContainer.innerHTML = '';
-        
-        // Optimize script loading with high fetch priority and async execution (safety check for template)
-        const optimizedTemplate = (template || '').replace('<script', '<script async fetchpriority="high" ');
-        
-        const fragment = document.createRange().createContextualFragment(optimizedTemplate);
-        contentContainer.appendChild(fragment);
-
-        // Wait for the draw.io script to populate the contentContainer
-        // Use MutationObserver to detect when children (like SVG/canvas) are added inside .mxgraph
-        observer = new MutationObserver((mutationsList, observerInstance) => {
-          const mxgraphDiv = contentContainer.querySelector('.mxgraph');
-          if (mxgraphDiv && (mxgraphDiv.querySelector('svg') || mxgraphDiv.querySelector('canvas'))) {
-            hideShimmer();
-            observerInstance.disconnect(); // Stop observing once content is loaded
-          }
-        });
-
-        // Observe the contentContainer for changes to its children and their descendants
-        observer.observe(contentContainer, { childList: true, subtree: true });
-
-        // Fallback timeout in case observer doesn't catch it or for very fast loads
-        diagramLoadTimeout = setTimeout(() => {
-          hideShimmer();
-        }, 3000); // Hide shimmer after 3 seconds as a fallback
-
-        toggleModal(true);
+    function hideShimmer() {
+      if (shimmer) {
+        shimmer.classList.add('opacity-0', 'pointer-events-none');
       }
-    });
-  });
+      if (diagramLoadTimeout) {
+        clearTimeout(diagramLoadTimeout);
+      }
+      if (observer) {
+        observer.disconnect();
+      }
+    }
 
-  closeBtn?.addEventListener('click', () => toggleModal(false));
-  modal?.addEventListener('click', (e) => { if (e.target === modal) toggleModal(false); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleModal(false); });
+    function showShimmer() {
+      if (shimmer) {
+        shimmer.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function toggleModal(show: boolean) {
+      if (!modal) return;
+
+      if (show) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+        showShimmer(); // Show shimmer when modal opens
+      } else {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+        if (contentContainer) contentContainer.innerHTML = '';
+        hideShimmer(); // Hide shimmer when modal closes
+      }
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        // Navigate to the sample page instead of opening the modal
+        // window.location.href = '/sample';
+        navigate('/sample');
+
+        /* Existing modal and diagram loading logic commented out
+        const template = item.getAttribute('data-template');
+
+        if (contentContainer && template) {
+          contentContainer.innerHTML = '';
+          
+          // Optimize script loading with high fetch priority and async execution (safety check for template)
+          const optimizedTemplate = (template || '').replace('<script', '<script async fetchpriority="high" ');
+          
+          const fragment = document.createRange().createContextualFragment(optimizedTemplate);
+          contentContainer.appendChild(fragment);
+
+          // Wait for the draw.io script to populate the contentContainer
+          // Use MutationObserver to detect when children (like SVG/canvas) are added inside .mxgraph
+          observer = new MutationObserver((mutationsList, observerInstance) => {
+            const mxgraphDiv = contentContainer.querySelector('.mxgraph');
+            if (mxgraphDiv && (mxgraphDiv.querySelector('svg') || mxgraphDiv.querySelector('canvas'))) {
+              hideShimmer();
+              observerInstance.disconnect(); // Stop observing once content is loaded
+            }
+          });
+
+          // Observe the contentContainer for changes to its children and their descendants
+          observer.observe(contentContainer, { childList: true, subtree: true });
+
+          // Fallback timeout in case observer doesn't catch it or for very fast loads
+          diagramLoadTimeout = setTimeout(() => {
+            hideShimmer();
+          }, 3000); // Hide shimmer after 3 seconds as a fallback
+
+          toggleModal(true);
+        }
+        */
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => toggleModal(false));
+    modal?.addEventListener('click', (e) => { if (e.target === modal) toggleModal(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleModal(false); });
+  });
 </script>
