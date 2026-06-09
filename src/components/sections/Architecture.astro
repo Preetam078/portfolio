@@ -1,16 +1,21 @@
 ---
+import { Image } from 'astro:assets'; // Import Astro's Image component
+import imageMap from '@/assets';
 import SectionTitle from '../ui/SectionTitle.astro';
 
 interface ArchitectureItem {
   title: string;
   description: string;
   imageUrl?: string;
+  navigationPath?: string;
+  frontendTemplate?: string;
   template?: string;
 }
 
 interface Props {
   architecture: {
     headline: string;
+    root: ArchitectureItem[]
     frontend: ArchitectureItem[];
     backend: ArchitectureItem[];
   };
@@ -18,8 +23,7 @@ interface Props {
 
 const { architecture } = Astro.props;
 const items = [
-  ...(architecture?.frontend || []), 
-  ...(architecture?.backend || [])
+  ...(architecture?.root || [])
 ].filter(item => item && item.title);
 ---
 
@@ -41,12 +45,29 @@ const items = [
           class={`architecture-item group glass-card reveal overflow-hidden rounded-xl transition-all duration-300 ${item.template ? 'cursor-pointer hover:scale-[1.01] hover:border-white/20' : ''}`}
           style={`transition-delay: ${index * 70}ms`}
           data-template={item.template}
+          data-navigation-path={item.navigationPath}
         >
-          {item.imageUrl && (
-            <div class="relative aspect-video w-full overflow-hidden border-b border-white/5 bg-zinc-900/50">
-              <img src={item.imageUrl} alt={item.title} class="absolute inset-0 h-full w-full object-cover opacity-50 transition-opacity group-hover:opacity-100" loading="lazy" />
-            </div>
-          )}
+          {(() => {
+            const imageKey = (item.imageUrl) as keyof typeof imageMap;
+            const resolvedImage = imageKey ? imageMap[imageKey] : undefined;
+            
+            if (!resolvedImage) return null;
+            
+            return (
+              <div class="relative aspect-video w-full overflow-hidden border-b border-white/5 bg-zinc-900/50">
+                <Image
+                  src={resolvedImage}
+                  alt={item.title}
+                  class="absolute inset-0 h-full w-full object-cover opacity-50 transition-opacity group-hover:opacity-100"
+                  loading="lazy"
+                  widths={[480, 768, 1024]}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  format="webp"
+                  quality={80}
+                />
+              </div>
+            );
+          })()}
           <div class="p-6">
             <h3 class="text-heading-20 text-white mb-3">{item.title}</h3>
             <p class="text-copy-14 text-zinc-400 leading-relaxed">{item.description}</p>
@@ -134,9 +155,9 @@ const items = [
 
     items.forEach(item => {
       item.addEventListener('click', () => {
-        // Navigate to the sample page instead of opening the modal
-        // window.location.href = '/sample';
-        navigate('/sample');
+        const navPath = item.getAttribute('data-navigation-path');
+        const target = navPath ? `/sample/${navPath}` : '/sample';
+        navigate(target);
 
         /* Existing modal and diagram loading logic commented out
         const template = item.getAttribute('data-template');

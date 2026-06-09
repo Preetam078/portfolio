@@ -289,18 +289,21 @@
     ]
   },
   "architecture": {
-     "headline": "Systematic approaches to building frontend platforms that scale across teams, meeting strict performance targets and production reliability standards.",
-     "frontend": [{
-      "imageUrl": "https://s3-alpha-sig.figma.com/plugins/1030845409121640454/89108/d6079800b78b08a0d585ec28c66c368d6fd907a6-cover?Expires=1780272000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UAGBkjVWZsy8HnzFk4wmuQGOA0gmOYlis9lfqK~0fxe5ApVzP8x4d9AmhNI5nTcmLaoPNbL-Fr9L8iFM0So1arWllX0KMX2s3smhME8Ph84DVDiV5k5vRon-GPu55qZJVRZuCmSLef7-jf3fat6GN8a62oCyxbzgrnn2~NwjQkF8jNZrBVknDI~jiqpjy6Juo~T-rntZdPvC-0c4Wq9a9EvQ6AWPpJ~WKrw~HeRDbCQdN1MzBhmtayC5JTRF-m9bASq0YK~nSIbOya23J0H2otVmfvut0or8Tzl8L2RBx2ygpH3eCk6PlhfdXoAmkrudgmUQbBewtQfErZ-sExT7GQ__",
-      "title": "Embeddable Poll widget",
+     "headline": "Systematic approaches to build end to end platforms that scale across teams, meeting strict performance targets and production reliability standards.",
+     "root": [{
+      "imageUrl": "frontendTemplate",
+      "title": "Frontend Architecture",
       "description": "Schema-driven React architecture featuring iframe isolation and real-time WebSocket synchronization for performant cross-domain embedding.",
-      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1sSn72m40A_6f2fecKVWWl5k7kHo-rQUi&amp;export=download&quot;}\"></div><script type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1sSn72m40A_6f2fecKVWWl5k7kHo-rQUi%26export%3Ddownload\"></script>"
+      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1sSn72m40A_6f2fecKVWWl5k7kHo-rQUi&amp;export=download&quot;}\"></div><script type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1sSn72m40A_6f2fecKVWWl5k7kHo-rQUi%26export%3Ddownload\"></script>",
+      "navigationPath": "frontend"
      },{
-      "imageUrl": "https://s.pinimg.com/images/facebook_share_image.png",
-      "title": "Masonry Layout Listing",
+      "imageUrl": "backendTemplate",
+      "title": "Backend Architecture",
       "description": "High-performance masonry grid engine implementing list virtualization and dynamic column balancing to efficiently render infinite scroll listings while preventing layout shifts.",
-      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I&amp;export=download&quot;}\"></div><script async type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I%26export%3Ddownload\"></script>"
+      "template": "<div class=\"mxgraph\" style=\"max-width:100%;border:1px solid transparent;\" data-mxgraph=\"{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://drive.google.com/uc?id=1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I&amp;export=download&quot;}\"></div><script async type=\"text/javascript\" src=\"https://viewer.diagrams.net/embed2.js?&fetch=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1hyV0vZLPDRIj7Klgar5jnoGDcpP5MO5I%26export%3Ddownload\"></script>",
+      "navigationPath": "backend"
      }],
-     "backend": [] 
+     "frontend": [],
+     "backend": []
   }
 }
